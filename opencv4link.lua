@@ -4,13 +4,12 @@ function LinkOpenCV4()
 
     -- Determine the relative directory based on the current script location
     local relativeDir = path.getdirectory(scriptLocation)
-
-	includedirs
-	{
-		relativeDir .. "/include",
-	}
 	
 	filter "configurations:Debug"
+		includedirs
+		{
+			relativeDir .. "/include",
+		}
 		links
 		{
 			"Iex-3_1_d.lib",
@@ -52,6 +51,10 @@ function LinkOpenCV4()
 			"{COPY} " .. '"' .. relativeDir .. "/Debug/bin/" .. '"' .. " %{cfg.targetdir}"
 		}
 	filter "configurations:Release"
+		includedirs
+		{
+			relativeDir .. "/include",
+		}
 		links
 		{
 			"Iex-3_1.lib",
@@ -93,6 +96,10 @@ function LinkOpenCV4()
 			"{COPY} " .. '"' .. relativeDir .. "/Release/bin/" .. '"' .. " %{cfg.targetdir}"
 		}
 	filter "configurations:Dist"
+		includedirs
+		{
+			relativeDir .. "/include",
+		}
 		links
 		{
 			"Iex-3_1.lib",
